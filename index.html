@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Andrii & Sofiia Wedding</title>
 
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
     <style>
         * {
             margin: 0;
@@ -14,10 +17,16 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Inter', sans-serif;
             overflow-x: hidden;
-            background: #f5f5f5;
+            background: #000;
             color: white;
+        }
+
+        h1,
+        h2 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
         }
 
         .hero {
@@ -27,6 +36,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
+            padding: 20px;
         }
 
         .slide {
@@ -45,7 +55,9 @@
         .overlay {
             position: absolute;
             inset: 0;
-            background: rgba(0, 0, 0, 0.45);
+            background: linear-gradient(to bottom,
+                    rgba(0, 0, 0, 0.55),
+                    rgba(0, 0, 0, 0.7));
         }
 
         .content {
@@ -53,51 +65,41 @@
             z-index: 2;
             max-width: 800px;
             padding: 20px;
+            animation: fadeIn 1.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         h1 {
-            font-size: 64px;
+            font-size: clamp(32px, 6vw, 64px);
             margin-bottom: 20px;
-            font-weight: 300;
         }
 
         .subtitle {
-            font-size: 28px;
-            margin-bottom: 20px;
+            font-size: clamp(18px, 3.5vw, 28px);
+            margin-bottom: 15px;
         }
 
         .text {
-            font-size: 20px;
-            margin-bottom: 40px;
-        }
-
-        .countdown {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin-top: 30px;
-        }
-
-        .time-box {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 20px;
-            border-radius: 20px;
-            min-width: 100px;
-            backdrop-filter: blur(10px);
-        }
-
-        .time-box span {
-            display: block;
-            font-size: 36px;
-            font-weight: bold;
+            font-size: clamp(14px, 3vw, 20px);
+            margin-bottom: 30px;
         }
 
         .scroll-indicator {
-            margin-top: 30px;
-            font-size: 22px;
+            margin-top: 20px;
+            font-size: 18px;
+            opacity: 0.8;
             animation: bounce 2s infinite;
-            opacity: 0.9;
         }
 
         @keyframes bounce {
@@ -108,69 +110,68 @@
             }
 
             50% {
-                transform: translateY(10px);
+                transform: translateY(6px);
             }
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .time-box {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 12px;
+            border-radius: 15px;
+            min-width: 65px;
+            backdrop-filter: blur(10px);
+            flex: 1;
+            max-width: 90px;
+            text-align: center;
+        }
+
+        .time-box span {
+            display: block;
+            font-size: 22px;
+            font-weight: bold;
         }
 
         .section {
-            padding: 100px 20px;
+            padding: 60px 15px;
             text-align: center;
-            color: #222;
-            background: white;
+            color: white;
+            background: #111;
         }
 
-        .section h2 {
-            font-size: 42px;
-            margin-bottom: 20px;
-            font-weight: 300;
-
-            background: rgba(255, 255, 255, 0.2);
-            padding: 20px;
-            border-radius: 20px;
-            min-width: 100px;
-            backdrop-filter: blur(10px)
+        .glass {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 15px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            display: inline-block;
+            margin: 10px auto;
         }
 
-        .section p1 {
-            font-size: 45px;
-            max-width: 700px;
-            margin: auto;
-            line-height: 1.7;
-            color: #555;
-
-            background: rgba(255, 255, 255, 0.2);
-            padding: 20px;
-            border-radius: 20px;
-            min-width: 100px;
-            backdrop-filter: blur(10px)
+        .location {
+            font-size: clamp(22px, 5vw, 45px);
+            margin: 20px auto;
         }
 
-        .section p {
-            font-size: 20px;
-            max-width: 700px;
-            margin: auto;
-            line-height: 1.7;
-            color: #555;
-
-            background: rgba(255, 255, 255, 0.2);
-            padding: 20px;
-            border-radius: 20px;
-            min-width: 100px;
-            backdrop-filter: blur(10px)
+        .colors {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 20px;
         }
 
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 42px;
-            }
-
-            .subtitle {
-                font-size: 22px;
-            }
-
-            .text {
-                font-size: 18px;
-            }
+        .color {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
         }
     </style>
 </head>
@@ -181,11 +182,9 @@
         <div class="slide active"
             style="background-image:url('https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=1400&auto=format&fit=crop')">
         </div>
-
         <div class="slide"
             style="background-image:url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1400&auto=format&fit=crop')">
         </div>
-
         <div class="slide"
             style="background-image:url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=1400&auto=format&fit=crop')">
         </div>
@@ -194,69 +193,48 @@
 
         <div class="content">
             <h1>Andrii & Sofiia</h1>
+            <div class="subtitle" id="slide-title">Ми одружуємось 💍</div>
+            <div class="text" id="slide-text">Запрошуємо вас розділити з нами цей день ❤️</div>
 
-            <div class="subtitle" id="slide-title">
-                Ми одружуємось 💍
-            </div>
+            <div class="scroll-indicator">↓ Гортай ↓</div>
 
-            <div class="text" id="slide-text">
-                Запрошуємо вас розділити з нами найважливіший день у нашому житті.
-            </div>
-
-            <div class="scroll-indicator">
-                ↓ Гортай вниз ↓
-            </div>
 
             <div class="countdown">
-                <div class="time-box">
-                    <span id="days">0</span>
-                    Днів
-                </div>
-
-                <div class="time-box">
-                    <span id="hours">0</span>
-                    Годин
-                </div>
-
-                <div class="time-box">
-                    <span id="minutes">0</span>
-                    Хвилин
-                </div>
-
-                <div class="time-box">
-                    <span id="seconds">0</span>
-                    Секунд
-                </div>
+                <div class="time-box"><span id="days">0</span>Днів</div>
+                <div class="time-box"><span id="hours">0</span>Год</div>
+                <div class="time-box"><span id="minutes">0</span>Хв</div>
+                <div class="time-box"><span id="seconds">0</span>Сек</div>
             </div>
         </div>
     </section>
 
     <section class="section"
-        style="background-image:url('https://staticsites.previo.cz/uploads/exterier-2-6-scaled.jpg?q=80&w=1400&auto=format&fit=crop'); background-repeat: no-repeat; background-size: cover;">
-        <h2>20–21 серпня 2026</h2>
-
-        <p1>
-            ✨ Josefův Důl ✨
-        </p1>
-
-        <p>
-            Ми будемо дуже раді провести цей особливий день разом із вами ❤️
-        </p>
+       
+        style="
+        background-image:
+        linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+        url('https://staticsites.previo.cz/uploads/exterier-2-6-scaled.jpg');
+        background-size: cover;
+        background-position: center;
+        "
+        
+    >
+        <h2 class="glass">20–21 серпня 2026</h2>
+        <p class="location">✨ Josefův Důl ✨</p>
+        <p class="glass">Ми будемо дуже раді провести цей день разом із вами ❤️</p>
     </section>
 
-    <section class="section" style="background:#decaeb;">
+    <section class="section">
         <h2>Бажані кольори ✨</h2>
+        <p>Просимо підтримати ніжну палітру 🌿</p>
 
-        <p style="margin-bottom:50px;">
-            Будемо вдячні, якщо у ваших образах будуть присутні ці відтінки 🌸
-        </p>
-
-        <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
-            <div style="width:80px;height:80px;border-radius:50%;background:#a3b18a;"></div>
-            <div style="width:80px;height:80px;border-radius:50%;background:#87986a;"></div>
-            <div style="width:80px;height:80px;border-radius:50%;background:#d6cbbe;"></div>
-            <div style="width:80px;height:80px;border-radius:50%;background:#f5f1ea;"></div>
-            <div style="width:80px;height:80px;border-radius:50%;background:#bcc9b6;"></div>
+        <div class="colors">
+            <div class="color" style="background:#a3b18a"></div>
+            <div class="color" style="background:#87986a"></div>
+            <div class="color" style="background:#d6cbbe"></div>
+            <div class="color" style="background:#f5f1ea"></div>
+            <div class="color" style="background:#bcc9b6"></div>
+            <div class="color" style="background:#c08497"></div>
         </div>
     </section>
 
@@ -267,59 +245,45 @@
             const now = new Date();
             const diff = weddingDate - now;
 
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-            const minutes = Math.floor((diff / 1000 / 60) % 60);
-            const seconds = Math.floor((diff / 1000) % 60);
+            if (diff <= 0) {
+                document.getElementById('days').innerText = 0;
+                document.getElementById('hours').innerText = 0;
+                document.getElementById('minutes').innerText = 0;
+                document.getElementById('seconds').innerText = 0;
+                return;
+            }
 
-            document.getElementById('days').innerText = days;
-            document.getElementById('hours').innerText = hours;
-            document.getElementById('minutes').innerText = minutes;
-            document.getElementById('seconds').innerText = seconds;
+            document.getElementById('days').innerText = Math.floor(diff / 86400000);
+            document.getElementById('hours').innerText = Math.floor(diff / 3600000 % 24);
+            document.getElementById('minutes').innerText = Math.floor(diff / 60000 % 60);
+            document.getElementById('seconds').innerText = Math.floor(diff / 1000 % 60);
         }
 
         setInterval(updateCountdown, 1000);
         updateCountdown();
 
         const slides = document.querySelectorAll('.slide');
-
         const slideData = [
-            {
-                title: 'Ми одружуємось 💍',
-                text: 'Запрошуємо вас розділити з нами найважливіший день у нашому житті.'
-            },
-            {
-                title: 'Дата святкування 📅',
-                text: '20–21 серпня 2026'
-            },
-            {
-                title: 'Локація ✨',
-                text: 'Josefův Důl'
-            }
+            { title: 'Ми одружуємось 💍', text: 'Запрошуємо вас ❤️' },
+            { title: 'Дата 📅', text: '20–21 серпня 2026' },
+            { title: 'Локація ✨', text: 'Josefův Důl' }
         ];
 
-        let currentSlide = 0;
+        let current = 0;
 
-        function showSlide(index) {
-            slides.forEach(slide => slide.classList.remove('active'));
-            slides[index].classList.add('active');
-
-            document.getElementById('slide-title').innerText = slideData[index].title;
-            document.getElementById('slide-text').innerText = slideData[index].text;
+        function showSlide(i) {
+            slides.forEach(s => s.classList.remove('active'));
+            slides[i].classList.add('active');
+            document.getElementById('slide-title').innerText = slideData[i].title;
+            document.getElementById('slide-text').innerText = slideData[i].text;
         }
 
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
-        }
-
-        function prevSlide() {
-            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-            showSlide(currentSlide);
-        }
-
-        setInterval(nextSlide, 6000);
+        setInterval(() => {
+            current = (current + 1) % slides.length;
+            showSlide(current);
+        }, 6000);
     </script>
 
 </body>
+
 </html>
