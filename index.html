@@ -1,304 +1,316 @@
-Новий Plain .html
-Войти
-Страница
-1
-из
-1
-100 %
 <!DOCTYPE html>
 <html lang="uk">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Andrii & Sofiia Wedding</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Andrii & Sofiia Wedding</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: Arial, sans-serif;
-            overflow-x: hidden;
-            background: #f5f5f5;
-            color: white;
-        }
+    body {
+      font-family: Arial, sans-serif;
+      overflow-x: hidden;
+      background: #f5f5f5;
+      color: white;
+    }
 
-        .hero {
-            height: 100vh;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
+    .hero {
+      height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
 
-        .slide {
-            position: absolute;
-            inset: 0;
-            background-size: cover;
-            background-position: center;
-            opacity: 0;
-            transition: opacity 1s ease;
-        }
+    .slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
 
-        .slide.active {
-            opacity: 1;
-        }
+    .slide.active {
+      opacity: 1;
+    }
 
-        .overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.45);
-        }
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+    }
 
-        .content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            padding: 20px;
-        }
+    .content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 20px;
+    }
 
-        h1 {
-            font-size: 64px;
-            margin-bottom: 20px;
-            font-weight: 300;
-        }
+    h1 {
+      font-size: 64px;
+      margin-bottom: 20px;
+      font-weight: 300;
+    }
 
-        .subtitle {
-            font-size: 28px;
-            margin-bottom: 20px;
-        }
+    .subtitle {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
 
-        .text {
-            font-size: 20px;
-            margin-bottom: 40px;
-        }
+    .text {
+      font-size: 20px;
+      margin-bottom: 40px;
+    }
 
-        .countdown {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin-top: 30px;
-        }
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
 
-        .time-box {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 20px;
-            border-radius: 20px;
-            min-width: 100px;
-            backdrop-filter: blur(10px);
-        }
+    .time-box {
+      background: rgba(255,255,255,0.2);
+      padding: 20px;
+      border-radius: 20px;
+      min-width: 100px;
+      backdrop-filter: blur(10px);
+    }
 
-        .time-box span {
-            display: block;
-            font-size: 36px;
-            font-weight: bold;
-        }
+    .time-box span {
+      display: block;
+      font-size: 36px;
+      font-weight: bold;
+    }
 
-        .scroll-indicator {
-            margin-top: 30px;
-            font-size: 22px;
-            animation: bounce 2s infinite;
-            opacity: 0.9;
-        }
+    .scroll-indicator {
+      margin-top: 30px;
+      font-size: 22px;
+      animation: bounce 2s infinite;
+      opacity: 0.9;
+    }
 
-        @keyframes bounce {
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
 
-            0%,
-            100% {
-                transform: translateY(0);
-            }
+      50% {
+        transform: translateY(10px);
+      }
+    }
 
-            50% {
-                transform: translateY(10px);
-            }
-        }
+    .section {
+	  padding: 100px 20px;
+      text-align: center;
+      color: #222;
+      background: white;
+    }
 
-        .section {
-            padding: 100px 20px;
-            text-align: center;
-            color: #222;
-            background: white;
-        }
+    .section h2 {
+      font-size: 42px;
+      margin-bottom: 20px;
+      font-weight: 300;
+	  
+	  background: rgba(255,255,255,0.2);
+      padding: 20px;
+      border-radius: 20px;
+      min-width: 100px;
+      backdrop-filter: blur(10px)
+    }
 
-        .section h2 {
-            font-size: 42px;
-            margin-bottom: 20px;
-            font-weight: 300;
-        }
+ .section p1 {
+      font-size: 45px;
+      max-width: 700px;
+      margin: auto;
+      line-height: 1.7;
+      color: #555;
+	 
+	 background: rgba(255,255,255,0.2);
+      padding: 20px;
+      border-radius: 20px;
+      min-width: 100px;
+      backdrop-filter: blur(10px)
+    }
 
-        .section p {
-            font-size: 20px;
-            max-width: 700px;
-            margin: auto;
-            line-height: 1.7;
-            color: #555;
-        }
+    .section p {
+      font-size: 20px;
+      max-width: 700px;
+      margin: auto;
+      line-height: 1.7;
+      color: #555;
+	 
+	 background: rgba(255,255,255,0.2);
+      padding: 20px;
+      border-radius: 20px;
+      min-width: 100px;
+      backdrop-filter: blur(10px)
+    }
 
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 42px;
-            }
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 42px;
+      }
 
-            .subtitle {
-                font-size: 22px;
-            }
+      .subtitle {
+        font-size: 22px;
+      }
 
-            .text {
-                font-size: 18px;
-            }
-        }
-    </style>
+      .text {
+        font-size: 18px;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-    <section class="hero">
-        <div class="slide active"
-            style="background-image:url('https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=1400&auto=format&fit=crop')">
+  <section class="hero">
+    <div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=1400&auto=format&fit=crop')"></div>
+
+    <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1400&auto=format&fit=crop')"></div>
+
+    <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=1400&auto=format&fit=crop')"></div>
+
+    <div class="overlay"></div>
+
+    <div class="content">
+      <h1>Andrii & Sofiia</h1>
+
+      <div class="subtitle" id="slide-title">
+        Ми одружуємось 💍
+      </div>
+
+      <div class="text" id="slide-text">
+        Запрошуємо вас розділити з нами найважливіший день у нашому житті.
+      </div>
+
+      <div class="scroll-indicator">
+        ↓ Гортай вниз ↓
+      </div>
+
+      <div class="countdown">
+        <div class="time-box">
+          <span id="days">0</span>
+          Днів
         </div>
 
-        <div class="slide"
-            style="background-image:url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1400&auto=format&fit=crop')">
+        <div class="time-box">
+          <span id="hours">0</span>
+          Годин
         </div>
 
-        <div class="slide"
-            style="background-image:url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=1400&auto=format&fit=crop')">
+        <div class="time-box">
+          <span id="minutes">0</span>
+          Хвилин
         </div>
 
-        <div class="overlay"></div>
-
-        <div class="content">
-            <h1>Andrii & Sofiia</h1>
-
-            <div class="subtitle" id="slide-title">
-                Ми одружуємось 💍
-            </div>
-
-            <div class="text" id="slide-text">
-                Запрошуємо вас розділити з нами найважливіший день у нашому житті.
-            </div>
-
-            <div class="scroll-indicator">
-                ↓ Гортай вниз ↓
-            </div>
-
-            <div class="countdown">
-                <div class="time-box">
-                    <span id="days">0</span>
-                    Днів
-                </div>
-
-                <div class="time-box">
-                    <span id="hours">0</span>
-                    Годин
-                </div>
-
-                <div class="time-box">
-                    <span id="minutes">0</span>
-                    Хвилин
-                </div>
-
-                <div class="time-box">
-                    <span id="seconds">0</span>
-                    Секунд
-                </div>
-            </div>
+        <div class="time-box">
+          <span id="seconds">0</span>
+          Секунд
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section class="section">
-        <h2>20–21 серпня 2026</h2>
+  <section class="section"  
+    style="background-image:url('https://staticsites.previo.cz/uploads/exterier-2-6-scaled.jpg?q=80&w=1400&auto=format&fit=crop')"
+>
+    <h2>20–21 серпня 2026</h2>
 
-        <p>
-            Josefův Důl ✨<br /><br />
-            Ми будемо дуже раді провести цей особливий день разом із вами ❤️
-        </p>
-    </section>
+	<p1>
+		✨ Josefův Důl ✨
+	</p1>
+	
+    <p>
+          Ми будемо дуже раді провести цей особливий день разом із вами ❤️
+    </p>
+  </section>
 
-    <section class="section" style="background:#f7efe8;">
-        <h2>Бажані кольори ✨</h2>
+  <section class="section" style="background:#decaeb;">
+    <h2>Бажані кольори ✨</h2>
 
-        <p style="margin-bottom:50px;">
-            Будемо вдячні, якщо у ваших образах будуть присутні ці відтінки 🌸
-        </p>
+    <p style="margin-bottom:50px;">
+      Будемо вдячні, якщо у ваших образах будуть присутні ці відтінки 🌸
+    </p>
 
-        <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
-            <div style="width:80px;height:80px;border-radius:50%;background:#d8c3a5;"></div>
-            <div style="width:80px;height:80px;border-radius:50%;background:#e8d8c4;"></div>
-            <div style="width:80px;height:80px;border-radius:50%;background:#c6b8a3;"></div>
-            <div style="width:80px;height:80px;border-radius:50%;background:#a1866f;"></div>
-            <div style="width:80px;height:80px;border-radius:50%;background:#f5f1eb;"></div>
-        </div>
-    </section>
+    <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
+      <div style="width:80px;height:80px;border-radius:50%;background:#a3b18a;"></div>
+      <div style="width:80px;height:80px;border-radius:50%;background:#87986a;"></div>
+      <div style="width:80px;height:80px;border-radius:50%;background:#d6cbbe;"></div>
+      <div style="width:80px;height:80px;border-radius:50%;background:#f5f1ea;"></div>
+      <div style="width:80px;height:80px;border-radius:50%;background:#bcc9b6;"></div>
+    </div>
+  </section>
 
-    <script>
-        const weddingDate = new Date('2026-08-20T15:00:00');
+  <script>
+    const weddingDate = new Date('2026-08-20T15:00:00');
 
-        function updateCountdown() {
-            const now = new Date();
-            const diff = weddingDate - now;
+    function updateCountdown() {
+      const now = new Date();
+      const diff = weddingDate - now;
 
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-            const minutes = Math.floor((diff / 1000 / 60) % 60);
-            const seconds = Math.floor((diff / 1000) % 60);
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / 1000 / 60) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
 
-            document.getElementById('days').innerText = days;
-            document.getElementById('hours').innerText = hours;
-            document.getElementById('minutes').innerText = minutes;
-            document.getElementById('seconds').innerText = seconds;
-        }
+      document.getElementById('days').innerText = days;
+      document.getElementById('hours').innerText = hours;
+      document.getElementById('minutes').innerText = minutes;
+      document.getElementById('seconds').innerText = seconds;
+    }
 
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
 
-        const slides = document.querySelectorAll('.slide');
+    const slides = document.querySelectorAll('.slide');
 
-        const slideData = [
-            {
-                title: 'Ми одружуємось 💍',
-                text: 'Запрошуємо вас розділити з нами найважливіший день у нашому житті.'
-            },
-            {
-                title: 'Дата святкування 📅',
-                text: '20–21 серпня 2026'
-            },
-            {
-                title: 'Локація ✨',
-                text: 'Josefův Důl'
-            }
-        ];
+    const slideData = [
+      {
+        title: 'Ми одружуємось 💍',
+        text: 'Запрошуємо вас розділити з нами найважливіший день у нашому житті.'
+      },
+      {
+        title: 'Дата святкування 📅',
+        text: '20–21 серпня 2026'
+      },
+      {
+        title: 'Локація ✨',
+        text: 'Josefův Důl'
+      }
+    ];
 
-        let currentSlide = 0;
+    let currentSlide = 0;
 
-        function showSlide(index) {
-            slides.forEach(slide => slide.classList.remove('active'));
-            slides[index].classList.add('active');
+    function showSlide(index) {
+      slides.forEach(slide => slide.classList.remove('active'));
+      slides[index].classList.add('active');
 
-            document.getElementById('slide-title').innerText = slideData[index].title;
-            document.getElementById('slide-text').innerText = slideData[index].text;
-        }
+      document.getElementById('slide-title').innerText = slideData[index].title;
+      document.getElementById('slide-text').innerText = slideData[index].text;
+    }
 
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
-        }
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
 
-        function prevSlide() {
-            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-            showSlide(currentSlide);
-        }
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
 
-        setInterval(nextSlide, 6000);
-    </script>
+    setInterval(nextSlide, 6000);
+  </script>
 
 </body>
-
 </html>
-Новий Plain .html. На экране.
